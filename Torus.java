@@ -1,7 +1,7 @@
 
 public class Torus {
 
-    private static int maxFrames = 100;
+    private static int maxFrames = 10_000;
     private static int nodeRadius = 5;
 
     public int width;
@@ -16,24 +16,44 @@ public class Torus {
         // Add nodes to torus
         this.nodes = new Node[N];
         for (int i = 0; i < N; i++) {
-            this.nodes[i] = new Node(nodeRadius, this.height, this.width);
+            this.nodes[i] = new Node(nodeRadius, this.height, this.width, false);
         }
     }
 
-    public void run() {
+    /**
+     * Run simulator
+     * 
+     * @return : number of frames it took for there to be an intersection
+     */
+    public int run() {
         for (int i = 0; i < maxFrames; i++) {
             this.frame++;
-            this.update();
+            boolean stop = this.update();
+
+            if (stop) {
+                return this.frame;
+            }
         }
     }
 
-    public void update() {
+    /**
+     * Update nodes according to mobility model and check for intersections
+     * 
+     * @return : if there was an intersect in that frame
+     */
+    public boolean update() {
         // Update frame;
         for (int i = 0; i < this.nodes.length; i++) {
             for (int j = 0; j < this.nodes.length; j++) {
                 boolean touching = intersecting(this.nodes[i], this.nodes[j]);
+
+                if (touching) {
+                    return true;
+                }
             }
         }
+
+        return false;
     }
 
     private static boolean intersecting(Node n1, Node n2) {
