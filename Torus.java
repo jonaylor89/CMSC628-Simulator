@@ -8,16 +8,12 @@ public class Torus {
     public int height;
     public int frame;
 
-    private Node nodes[];
+    public Node nodes[];
 
-    public Torus(int N) {
+    public Torus(int width, int height) {
+        this.width = width;
+        this.height = height;
         this.frame = 0;
-
-        // Add nodes to torus
-        this.nodes = new Node[N];
-        for (int i = 0; i < N; i++) {
-            this.nodes[i] = new Node(nodeRadius, this.height, this.width, false);
-        }
     }
 
     /**
@@ -34,6 +30,8 @@ public class Torus {
                 return this.frame;
             }
         }
+
+        return -1;
     }
 
     /**
