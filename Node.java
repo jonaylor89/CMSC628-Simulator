@@ -1,16 +1,20 @@
 
+import java.util.Random;
+
 public class Node {
 
-    private int x;
-    private int y;
-    private int radius;
+    public int x;
+    public int y;
+    public int radius;
     
     private int maxHeight;
     private int maxWidth;
 
     public Node(int radius, int maxHeight, int maxWidth) {
-        this.x = 0;
-        this.y = 0;
+        Random random = new Random();
+
+        this.x = random.nextInt(maxWidth);
+        this.y = random.nextInt(maxHeight);
         this.radius = radius;
 
         this.maxHeight = maxHeight;
