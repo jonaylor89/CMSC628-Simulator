@@ -1,7 +1,7 @@
 
 public class Main {
 
-    private static int N = 16;
+    private static int N = 100;
     private static int K = 5;
     private static double L = 1.0;
     private static double v = 100.0;
@@ -13,15 +13,20 @@ public class Main {
 
         // Create Torus
         Torus torus = new Torus((int) Math.sqrt(N), (int) Math.sqrt(N));
+
         // Add nodes to torus
         torus.nodes = new Node[2];
         for (int i = 0; i < 2; i++) {
             torus.nodes[i] = new Node(K, (int) Math.sqrt(N), (int) Math.sqrt(N), false);
         }
-        torus.run();
 
-        System.out.println("Expected ET " + hittingTime());
-        System.out.println("Expected EM " + meetingTime());
+        // Run simulation
+        int frames = torus.run();
+
+        System.out.println("Actual Frames: " + frames);
+
+        System.out.println("Expected ET: " + hittingTime());
+        System.out.println("Expected EM: " + meetingTime());
     }
 
     public static double hittingTime() {

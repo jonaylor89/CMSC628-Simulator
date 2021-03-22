@@ -61,7 +61,7 @@ public class Torus {
     }
 
     private static double dist(Node n1, Node n2) {
-        return Math.pow(n1.x - n2.x, 2) + Math.pow(n1.y - n2.y, 2);
+        return Math.sqrt(Math.pow(n1.x - n2.x, 2) + Math.pow(n1.y - n2.y, 2));
     }
 
 }
