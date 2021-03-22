@@ -1,7 +1,3 @@
-package Assignment2;
-
-import Assignment2.Torus; 
-import Assignment2.Node;
 
 public class Main {
 

@@ -1,13 +1,10 @@
-package Assignment2;
-
-import Assignment2.Node;
 
 public class Torus {
 
     private static int maxFrames = 100;
 
-    public double width;
-    public double height;
+    public int width;
+    public int height;
     public int frame;
 
     private Node nodes[];
@@ -18,7 +15,7 @@ public class Torus {
         // Add nodes to torus
         this.nodes = new Node[N];
         for (int i = 0; i < N; i++) {
-            this.nodes[i] = new Node();
+            this.nodes[i] = new Node(5, this.height, this.width);
         }
     }
 
