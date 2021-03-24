@@ -1,7 +1,7 @@
 
 public class Main {
 
-    private static int N = 100;
+    private static int N = 10000;
     private static int K = 5;
     private static double L = 1.0;
     private static double v = 100.0;

@@ -2,7 +2,7 @@
 public class Torus {
 
     private static int maxFrames = 10_000;
-    private static int nodeRadius = 5;
+    private static int nodeRadius = 1;
 
     public int width;
     public int height;
@@ -43,12 +43,16 @@ public class Torus {
         // Update frame;
         for (int i = 0; i < this.nodes.length; i++) {
             for (int j = 0; j < this.nodes.length; j++) {
-                boolean touching = intersecting(this.nodes[i], this.nodes[j]);
+                if (i != j) {
+                    boolean touching = intersecting(this.nodes[i], this.nodes[j]);
 
-                if (touching) {
-                    return true;
+                    if (touching) {
+                        return true;
+                    }
                 }
             }
+
+            this.nodes[i].update();
         }
 
         return false;
