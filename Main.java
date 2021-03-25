@@ -6,7 +6,7 @@ public class Main {
     private static int N = 1000;
     private static int K = 10;
     private static double L = 0.5214 * Math.sqrt(N);
-    private static double v = 10.0;
+    private static int v = 10;
     private static double T = 1.0;
     private static double tStop = 0.0;
     private static double vrd = 1.27;
@@ -25,8 +25,8 @@ public class Main {
 
             // Add nodes to torus
             torus.nodes = new Node[2];
-            torus.nodes[0] = new Node(K, (int) Math.sqrt(N), (int) Math.sqrt(N), false);
-            torus.nodes[1] = new Node(K, (int) Math.sqrt(N), (int) Math.sqrt(N), true);
+            torus.nodes[0] = new Node(K, v, (int) Math.sqrt(N), (int) Math.sqrt(N), false);
+            torus.nodes[1] = new Node(K, v, (int) Math.sqrt(N), (int) Math.sqrt(N), true);
 
             // for (int i = 0; i < 2; i++) {
             // torus.nodes[i] = new Node(K, (int) Math.sqrt(N), (int) Math.sqrt(N), false);
