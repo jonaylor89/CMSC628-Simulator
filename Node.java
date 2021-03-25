@@ -19,7 +19,6 @@ public class Node {
         this.x = this.rand.nextInt(maxWidth);
         this.y = this.rand.nextInt(maxHeight);
 
-        System.out.println("X: " + x + ", Y: " + y);
         this.radius = radius;
 
         this.maxHeight = maxHeight;

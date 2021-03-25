@@ -1,4 +1,6 @@
 
+import java.util.Arrays;
+
 public class Main {
 
     private static int N = 10000;
@@ -9,21 +11,38 @@ public class Main {
     private static double vrd = 1.27;
     private static double pm = 1.0;
 
+    private static int NUM_OF_SIMULATIONS = 100;
+
     public static void main(String[] argv) {
 
-        // Create Torus
-        Torus torus = new Torus((int) Math.sqrt(N), (int) Math.sqrt(N));
+        int simulations[] = new int[NUM_OF_SIMULATIONS];
 
-        // Add nodes to torus
-        torus.nodes = new Node[2];
-        for (int i = 0; i < 2; i++) {
-            torus.nodes[i] = new Node(K, (int) Math.sqrt(N), (int) Math.sqrt(N), false);
+        for (int i = 0; i < NUM_OF_SIMULATIONS; i++) {
+
+            // Create Torus
+            Torus torus = new Torus((int) Math.sqrt(N), (int) Math.sqrt(N));
+
+            // Add nodes to torus
+            torus.nodes = new Node[2];
+            torus.nodes[0] = new Node(K, (int) Math.sqrt(N), (int) Math.sqrt(N), false);
+            torus.nodes[1] = new Node(K, (int) Math.sqrt(N), (int) Math.sqrt(N), true);
+
+            // for (int i = 0; i < 2; i++) {
+            // torus.nodes[i] = new Node(K, (int) Math.sqrt(N), (int) Math.sqrt(N), false);
+            // }
+
+            // Run simulation
+            int frames = torus.run();
+
+            // Store result
+            if (frames != -1) {
+                simulations[i] = frames;
+            }
         }
 
-        // Run simulation
-        int frames = torus.run();
+        double avg = Arrays.stream(simulations).average().orElse(Double.NaN);
 
-        System.out.println("Actual Frames: " + frames);
+        System.out.println("AVG: " + avg);
 
         System.out.println("Expected ET: " + hittingTime());
         System.out.println("Expected EM: " + meetingTime());

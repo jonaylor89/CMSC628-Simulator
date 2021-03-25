@@ -2,7 +2,7 @@
 public class Torus {
 
     private static int maxFrames = 10_000;
-    private static int nodeRadius = 1;
+    private static int nodeRadius = 5;
 
     public int width;
     public int height;
@@ -61,7 +61,7 @@ public class Torus {
     private static boolean intersecting(Node n1, Node n2) {
         double nodeDist = dist(n1, n2);
 
-        return nodeDist < nodeRadius;
+        return nodeDist < (nodeRadius * 2);
     }
 
     private static double dist(Node n1, Node n2) {
