@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static int N = 10000;
+    private static int N = 1000;
     private static int K = 10;
     private static double L = 0.5214 * Math.sqrt(N);
     private static double v = 10.0;
@@ -12,7 +12,7 @@ public class Main {
     private static double vrd = 1.27;
     private static double pm = (T / (T + tStop));
 
-    private static int NUM_OF_SIMULATIONS = 100;
+    private static int NUM_OF_SIMULATIONS = 10000;
 
     public static void main(String[] argv) {
 
