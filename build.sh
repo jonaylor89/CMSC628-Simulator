@@ -1,1 +1,0 @@
-javac Main.java Torus.java Node.java
